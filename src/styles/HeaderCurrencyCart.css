@@ -1,0 +1,78 @@
+.header__right__container{
+    display: flex;
+    padding-right: 2rem;
+    box-sizing: border-box;
+    justify-content: right;
+}
+.header__right__container > div{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    margin: 0 1rem ;
+    font-size: 18px;
+    font-weight: 800;
+}
+.header__right__container > div > div{
+    cursor: pointer;
+}
+.header__currency {
+    position: relative;
+}
+.currency_drop_down{
+    position: absolute;
+    top: 100%;
+    z-index: 9;
+}
+.header__currency > div > img{
+    margin: 10px 0 0 6px;
+}
+.currency_drop_down{
+    width: 58px;
+}
+.currency_drop_down > ul{
+    list-style: none;
+    padding: 0;
+    font-size: 16px;
+    font-weight: normal;
+}
+.currency_drop_down > ul > li{
+    margin: 16px 0;
+}
+
+
+
+
+.header__cart > div{
+    display: flex;
+}
+.header__cart > div > p{
+    width: 16px;
+    height: 16px;
+    font-size: 12px;
+    background: black;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -20%;
+    margin-left: -20%;
+}
+.cart_overlay{
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100vw;
+    max-width: 1440px;
+    height: calc(100vh - 80px);
+    z-index: 99;
+    background: rgba(57, 55, 72, 0.22);
+    display: flex;
+    justify-content: right;
+}
+.cart_overlay_body{
+    width: 325px;
+    height: 540px;
+    background: white;
+    margin-right: 32px;
+}
