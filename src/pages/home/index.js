@@ -10,9 +10,11 @@ class Index extends Component {
 
   static contextType = DataContext
 
+
   render() {
 
-    const {currency, activeHeaderOption} = this.context
+    const {currency, activeHeaderOption } = this.context
+
 
     return (
       <div className="home">
@@ -30,7 +32,7 @@ class Index extends Component {
 
                 return products?.map((product, idx) => {
 
-                  const {gallery, id, name, prices} = product
+                  const {gallery, id, name, prices, attributes} = product
 
                   const pic = gallery[0]
 
@@ -40,7 +42,7 @@ class Index extends Component {
 
                   const { amount } = price
 
-                  return <Product id={id} pic={pic} name={name} symbol={symbol} amount={amount} key={idx + id} />
+                  return <Product id={id} pic={pic} name={name} symbol={symbol} amount={amount} key={idx + id} attributes={attributes} />
 
                 })
               }}
