@@ -13,8 +13,9 @@ class Product extends Component {
 
   componentDidMount() {
 
-    const {gallery, attributes} = this.props.product
+    const {gallery} = this.props.product
     const firstPic = gallery[0];
+    const attributes = [...this.props.product.attributes]
     const defaultAtts = this.getDefaultAttrs(attributes);
     this.setState({ pic: firstPic, atts: defaultAtts });
   }
@@ -26,7 +27,8 @@ class Product extends Component {
   getDefaultAttrs = (attributes) => {
     const atts = [];
     for (let i = 0; i < attributes?.length; i++) {
-      const { id, name, items, type } = attributes[i];
+      const { id, name, type } = attributes[i];
+      const items = [...attributes[i].items]
       const signleAtt = { id: id, name: name, type: type, value: items[0] };
       atts.push(signleAtt);
     }
@@ -35,7 +37,9 @@ class Product extends Component {
 
   setAtts = (changedAtt) => {
     const newAtts = [...this.state.atts];
-    const { id, type, name, value } = changedAtt;
+    const { id, type, name } = changedAtt;
+
+    const value = Object.assign({}, changedAtt.value)
 
     for (let i = 0; i < newAtts?.length; i++) {
       const current = newAtts[i];
@@ -57,17 +61,13 @@ class Product extends Component {
     const { id, gallery, brand, description, attributes, name, prices } =
       this.props.product;
 
-    const attts = [...attributes]
-
-    const { currency, setCart, cart } = this.context;
+    const { currency, setCart } = this.context;
     const { label, symbol } = currency;
 
     const price = prices?.filter((pr) => pr?.currency?.label === label)[0]
       ?.amount;
 
     const { pic, atts } = this.state;
-
-    console.log("cart changed", cart)
 
     return (
       <div className="product__body">
@@ -77,7 +77,7 @@ class Product extends Component {
           <h1>{brand}</h1>
           <p>{name}</p>
           {/* attributes */}
-          <Attributes atts={attts} choosed={atts} setAtts={this.setAtts} />
+          <Attributes atts={attributes} choosed={atts} setAtts={this.setAtts} />
           <h3>PRICE:</h3>
           <h2>{symbol + price}</h2>
           <button

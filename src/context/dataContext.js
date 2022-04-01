@@ -35,7 +35,6 @@ class DataProvider extends Component {
  
     var newCart = [...this.state.cart]
     const {id, name, atts, count} = item
-    // console.log(item, this.state.cart)
 
     switch(type){
       case "Add":
@@ -108,6 +107,8 @@ class DataProvider extends Component {
     const { children } = this.props;
     const { currency, activeHeaderOption, cart } = this.state;
     const { setCurrency, setActiveHeaderOption, setCart } = this;
+
+    console.log(cart)
 
     return (
       <DataContext.Provider

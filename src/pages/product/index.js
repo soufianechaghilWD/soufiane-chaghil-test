@@ -4,14 +4,12 @@ import Header from "../../components/Header";
 import { get_product_query } from "../../queries";
 import Product from "./Product";
 import "../../styles/Product.css";
-// import DataContext from "../../context/dataContext";
 
 class Index extends Component {
   state = {
     product_id: "",
   };
 
-//   static contextType = DataContext
 
   componentDidMount() {
     const queryString = window.location.search;
@@ -23,9 +21,6 @@ class Index extends Component {
   render() {
     const { product_id } = this.state;
 
-    // const {cart} = this.context
-
-    // console.log(cart?.map(ele => ele?.atts));
 
     
     return (
