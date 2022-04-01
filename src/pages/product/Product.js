@@ -36,10 +36,12 @@ class Product extends Component {
   };
 
   setAtts = (changedAtt) => {
-    const newAtts = [...this.state.atts];
-    const { id, type, name } = changedAtt;
-
-    const value = Object.assign({}, changedAtt.value)
+    var newAtts = [];
+    for(let i = 0; i < this.state.atts.length; i++){
+      const tmp = Object.assign({}, this.state.atts[i])
+      newAtts.push(tmp)
+    }
+    const { id, type, name, value } = changedAtt;
 
     for (let i = 0; i < newAtts?.length; i++) {
       const current = newAtts[i];
