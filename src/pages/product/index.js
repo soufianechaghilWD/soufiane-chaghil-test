@@ -1,13 +1,51 @@
-import React, { Component } from 'react';
+import { Query } from "@apollo/client/react/components";
+import React, { Component } from "react";
+import Header from "../../components/Header";
+import { get_product_query } from "../../queries";
+import Product from "./Product";
+import "../../styles/Product.css";
+// import DataContext from "../../context/dataContext";
 
 class Index extends Component {
-    render() {
-        return (
-            <div>
-                product page
-            </div>
-        );
-    }
+  state = {
+    product_id: "",
+  };
+
+//   static contextType = DataContext
+
+  componentDidMount() {
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const product_id = urlParams.get("id");
+    this.setState({ product_id: product_id });
+  }
+
+  render() {
+    const { product_id } = this.state;
+
+    // const {cart} = this.context
+
+    // console.log(cart?.map(ele => ele?.atts));
+
+    
+    return (
+      <div className="product">
+        <Header />
+        {product_id !== "" && (
+          <Query query={get_product_query(product_id)}>
+            {({ loading, data }) => {
+              if (loading) return <h6>loading</h6>;
+
+              const { product } = data;
+
+
+              return <Product product={product} />;
+            }}
+          </Query>
+        )}
+      </div>
+    );
+  }
 }
 
 export default Index;

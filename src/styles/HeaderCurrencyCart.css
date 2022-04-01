@@ -28,6 +28,7 @@
 }
 .currency_drop_down{
     width: 58px;
+    background: white;
 }
 .currency_drop_down > ul{
     list-style: none;
@@ -62,7 +63,7 @@
     position: absolute;
     top: 100%;
     left: 0;
-    width: 100vw;
+    width: 100%;
     max-width: 1440px;
     height: calc(100vh - 80px);
     z-index: 99;

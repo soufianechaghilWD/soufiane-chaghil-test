@@ -15,7 +15,6 @@ class Index extends Component {
 
     const {currency, activeHeaderOption } = this.context
 
-
     return (
       <div className="home">
         <Header />   
@@ -42,7 +41,7 @@ class Index extends Component {
 
                   const { amount } = price
 
-                  return <Product id={id} pic={pic} name={name} symbol={symbol} amount={amount} key={idx + id} attributes={attributes} />
+                  return <Product id={id} pic={pic} name={name} symbol={symbol} amount={amount} key={idx + id} attributes={attributes} prices={prices} />
 
                 })
               }}

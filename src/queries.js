@@ -50,3 +50,34 @@ export const get_products_in_category = (active_item) => {
         }
       }`;
 };
+
+export const get_product_query = (product_id) => {
+  return gql`
+  query{
+    product(id: "${product_id}"){
+    id
+    name
+    inStock
+    gallery
+    description
+    attributes{
+      id
+        name
+      type
+      items{
+        displayValue
+        value
+        id
+      }
+    }
+    prices{
+        currency{
+          label
+            symbol
+        }
+          amount
+      }
+    brand
+  }
+}`;
+};

@@ -21,7 +21,7 @@ class Product extends Component {
   };
 
   render() {
-    const { id, pic, name, symbol, amount, attributes } = this.props;
+    const { id, pic, name, symbol, amount, attributes, prices } = this.props;
 
     const { hoverInside } = this.state;
 
@@ -48,7 +48,8 @@ class Product extends Component {
                 id,
                 name,
                 atts: defaultAtts,
-                price: amount,
+                prices,
+                count: 1
               };
 
               setCart("Add", item);
