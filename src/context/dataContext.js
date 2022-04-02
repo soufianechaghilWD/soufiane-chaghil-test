@@ -108,7 +108,6 @@ class DataProvider extends Component {
     const { currency, activeHeaderOption, cart } = this.state;
     const { setCurrency, setActiveHeaderOption, setCart } = this;
 
-    console.log(cart)
 
     return (
       <DataContext.Provider

@@ -28,7 +28,7 @@ class Attributes extends Component {
                           key={idx + "sm"}
                           className="att choosen"
                         >
-                          {item?.displayValue}
+                          {item?.value}
                         </div>
                       );
                     } else
@@ -43,7 +43,7 @@ class Attributes extends Component {
                           className="att unchoosen"
                           onClick={() => {setAtts({name, type, id, value: item})}}
                         >
-                          {item?.displayValue}
+                          {item?.value}
                         </div>
                       );
                   })}

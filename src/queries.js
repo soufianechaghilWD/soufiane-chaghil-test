@@ -29,6 +29,7 @@ export const get_products_in_category = (active_item) => {
             id
             name
             gallery
+            brand
             prices {
               currency {
                 label

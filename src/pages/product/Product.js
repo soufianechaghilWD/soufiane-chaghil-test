@@ -84,7 +84,7 @@ class Product extends Component {
           <h2>{symbol + price}</h2>
           <button
             onClick={() => {
-              setCart("Add", { id, name, atts, count: 1, prices });
+              setCart("Add", { id, name, atts, count: 1, prices, brand, attributes, pic: gallery[0] });
             }}
           >
             ADD TO CART
