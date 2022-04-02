@@ -21,7 +21,7 @@ class Product extends Component {
   };
 
   render() {
-    const { id, pic, name, symbol, amount, attributes, prices, brand } = this.props;
+    const { id, gallery, name, symbol, amount, attributes, prices, brand } = this.props;
 
     const { hoverInside } = this.state;
 
@@ -36,7 +36,7 @@ class Product extends Component {
         onMouseLeave={() => this.setState({ hoverInside: false })}
       >
         <Link to={"/product?id=" + id}>
-          <img src={pic} alt="productPic" className="productPic" />
+          <img src={gallery[0]} alt="productPic" className="productPic" />
         </Link>
         {hoverInside === true && (
           <img
@@ -52,7 +52,7 @@ class Product extends Component {
                 count: 1,
                 brand,
                 attributes,
-                pic
+                gallery
               };
 
               setCart("Add", item);

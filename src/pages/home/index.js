@@ -32,7 +32,6 @@ class Index extends Component {
                 return products?.map((product, idx) => {
 
                   const {gallery, id, name, prices, attributes, brand} = product
-                  const pic = gallery[0]
 
                   const {label, symbol} = currency
 
@@ -40,7 +39,7 @@ class Index extends Component {
 
                   const { amount } = price
 
-                  return <Product id={id} pic={pic} name={name} symbol={symbol} amount={amount} key={idx + id} attributes={attributes} prices={prices} brand={brand} />
+                  return <Product id={id} gallery={gallery} name={name} symbol={symbol} amount={amount} key={idx + id} attributes={attributes} prices={prices} brand={brand} />
 
                 })
               }}

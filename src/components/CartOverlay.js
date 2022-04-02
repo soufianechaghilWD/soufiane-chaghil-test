@@ -51,7 +51,7 @@ class CartOverlay extends Component {
           </h2>
           <div className="cart_overlay_products">
             {cart?.map((product, idx) => {
-              const { id, count, name, brand, prices, atts, attributes, pic } =
+              const { id, count, name, brand, prices, atts, attributes, gallery } =
                 product;
               const price = prices?.filter(
                 (pr) => pr?.currency?.label === label
@@ -110,7 +110,7 @@ class CartOverlay extends Component {
                           count: 1,
                           id,
                           name,
-                          pic,
+                          gallery,
                           prices,
                         });
                       }}
@@ -125,7 +125,7 @@ class CartOverlay extends Component {
                       count: 1,
                       id,
                       name,
-                      pic,
+                      gallery,
                       prices,
                     })}}>
                       -
@@ -133,7 +133,7 @@ class CartOverlay extends Component {
                   </div>
                   <div className="overlay_product_pic">
                     <img
-                      src={pic}
+                      src={gallery[0]}
                       alt="OverlayPic"
                     />
                   </div>
