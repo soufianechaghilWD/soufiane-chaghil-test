@@ -27,29 +27,6 @@
   display: flex;
   margin: 1rem 0;
 }
-.overlayatt {
-  width: 35px;
-  height: 35px;
-  border: 1px solid rgba(179, 173, 173, 0.3);
-  background: rgba(179, 173, 173, 0.3);
-  color: gray;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 10px;
-}
-.selected {
-  background: white !important;
-  border: 1px solid black;
-  color: black;
-}
-.selectedSw {
-  border: 1px solid black;
-  color: black;
-}
-.overlayatt:not(:last-child) {
-  margin-right: 0.3rem;
-}
 .overlay_product_info,
 .overlay_product_actions {
   display: flex;

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
+import Attributes from "../../components/Attributes";
 import DataContext from "../../context/dataContext";
-import Attributes from "./Attributes";
 import Pics from "./Pics";
 
 class Product extends Component {
@@ -76,8 +76,12 @@ class Product extends Component {
         <div className="product__info">
           <h1>{brand}</h1>
           <p>{name}</p>
-          {/* attributes */}
-          <Attributes atts={attributes} choosed={atts} setAtts={this.setAtts} />
+          <Attributes
+            attributes={attributes}
+            atts={atts}
+            overlay={false}
+            setAtts={this.setAtts}
+          />
           <h3>PRICE:</h3>
           <h2>{symbol + price}</h2>
           <button

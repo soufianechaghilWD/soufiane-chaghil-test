@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Attributes from "../../components/Attributes";
 import Header from "../../components/Header";
 import DataContext from "../../context/dataContext";
 import "../../styles/Cart.css";
@@ -40,41 +41,11 @@ class Index extends Component {
                     <h3>{brand}</h3>
                     <p>{name}</p>
                     <h5>{symbol + price}</h5>
-                    <div className="cart__products__atts">
-                      {attributes?.map((att, attidx) => {
-                        const { type, items } = att;
-                        return (
-                          <div
-                            className="att_container"
-                            key={attidx + "attidx"}
-                          >
-                            {items?.map((item, itidx) => {
-                              const { value } = item;
-                              const selected =
-                                atts[attidx]?.value?.value === value;
-                              return (
-                                <div
-                                  className={
-                                    selected
-                                      ? type === "text"
-                                        ? "selectedAttItem att_item"
-                                        : "selectedAttItemSw att_item"
-                                      : "att_item"
-                                  }
-                                  style={{
-                                    background:
-                                      type === "text" ? "" : `${value}`,
-                                  }}
-                                  key={itidx}
-                                >
-                                  {type === "text" && value}
-                                </div>
-                              );
-                            })}
-                          </div>
-                        );
-                      })}
-                    </div>
+                    <Attributes
+                      attributes={attributes}
+                      atts={atts}
+                      overlay={false}
+                    />
                   </div>
                   <div className="cart_pro_actionsPics">
                     <div className="cart_actions">

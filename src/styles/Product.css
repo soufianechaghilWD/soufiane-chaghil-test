@@ -49,36 +49,3 @@
 .product__info__desc {
   font-weight: 200;
 }
-
-.atts {
-  margin: 2rem 0;
-}
-.singleAtt {
-  margin-bottom: 1rem;
-}
-.singleAtt > div {
-  display: flex;
-}
-.singleAtt > p {
-  font-weight: 500;
-  margin-bottom: 0.5rem;
-}
-.att {
-  border: 1px solid #a6a6a6;
-  width: 63px;
-  height: 45px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  margin: 0 0.4rem;
-}
-.choosen {
-  border: 2px solid black;
-  background: black;
-  color: white;
-}
-.unchoosen {
-  background: white;
-  color: black;
-}

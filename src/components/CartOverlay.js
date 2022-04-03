@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import DataContext from "../context/dataContext";
 import "../styles/Overlay.css";
+import Attributes from "./Attributes";
 
 class CartOverlay extends Component {
   static contextType = DataContext;
@@ -73,39 +74,11 @@ class CartOverlay extends Component {
                     <p>{name}</p>
                     <h3>{symbol + price}</h3>
                     <div className="overlay__atts">
-                      {attributes?.map((attribute, attIdx) => {
-                        const { items, type } = attribute;
-
-                        return (
-                          <div className="overlay_atts_container" key={attIdx}>
-                            {items?.map((item, idxItem) => {
-                              const { value } = item;
-
-                              const selected =
-                                atts[attIdx]?.value?.value === value;
-
-                              return (
-                                <div
-                                  key={idxItem + "it"}
-                                  className={
-                                    selected
-                                      ? type === "text"
-                                        ? "overlayatt selected"
-                                        : "overlayatt selectedSw"
-                                      : "overlayatt"
-                                  }
-                                  style={{
-                                    background:
-                                      type === "text" ? "" : `${value}`,
-                                  }}
-                                >
-                                  {type === "text" && value}
-                                </div>
-                              );
-                            })}
-                          </div>
-                        );
-                      })}
+                      <Attributes
+                        attributes={attributes}
+                        atts={atts}
+                        overlay={true}
+                      />
                     </div>
                   </div>
                   <div className="overlay_product_actions">
