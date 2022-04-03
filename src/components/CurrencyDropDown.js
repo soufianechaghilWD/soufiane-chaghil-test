@@ -4,8 +4,7 @@ import { get_currency_query } from "../queries";
 import DataContext from "../context/dataContext";
 
 class CurrencyDropDown extends Component {
-
-    static contextType = DataContext
+  static contextType = DataContext;
 
   constructor(props) {
     super(props);
@@ -33,15 +32,14 @@ class CurrencyDropDown extends Component {
   }
 
   render() {
-
-    const {currency, setCurrency} = this.context
+    const { currency, setCurrency } = this.context;
 
     const ChangeCurrency = (newCurrency) => {
-        if(newCurrency?.label !== currency?.label){
-            setCurrency(newCurrency)
-            this.props.setOpenCurrencyDropDown()
-        }
-    }
+      if (newCurrency?.label !== currency?.label) {
+        setCurrency(newCurrency);
+        this.props.setOpenCurrencyDropDown();
+      }
+    };
 
     return (
       <div className="currency_drop_down" ref={this.wrapperRef}>
@@ -55,7 +53,14 @@ class CurrencyDropDown extends Component {
                 {currencies?.map((currency, idx) => {
                   const { symbol, label } = currency;
 
-                  return <li key={idx + "currency"} onClick={() => ChangeCurrency({symbol, label})} >{symbol + " " + label}</li>;
+                  return (
+                    <li
+                      key={idx + "currency"}
+                      onClick={() => ChangeCurrency({ symbol, label })}
+                    >
+                      {symbol + " " + label}
+                    </li>
+                  );
                 })}
               </ul>
             );

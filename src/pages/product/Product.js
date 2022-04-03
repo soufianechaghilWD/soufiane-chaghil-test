@@ -12,10 +12,9 @@ class Product extends Component {
   static contextType = DataContext;
 
   componentDidMount() {
-
-    const {gallery} = this.props.product
+    const { gallery } = this.props.product;
     const firstPic = gallery[0];
-    const attributes = [...this.props.product.attributes]
+    const attributes = [...this.props.product.attributes];
     const defaultAtts = this.getDefaultAttrs(attributes);
     this.setState({ pic: firstPic, atts: defaultAtts });
   }
@@ -28,7 +27,7 @@ class Product extends Component {
     const atts = [];
     for (let i = 0; i < attributes?.length; i++) {
       const { id, name, type } = attributes[i];
-      const items = [...attributes[i].items]
+      const items = [...attributes[i].items];
       const signleAtt = { id: id, name: name, type: type, value: items[0] };
       atts.push(signleAtt);
     }
@@ -37,9 +36,9 @@ class Product extends Component {
 
   setAtts = (changedAtt) => {
     var newAtts = [];
-    for(let i = 0; i < this.state.atts.length; i++){
-      const tmp = Object.assign({}, this.state.atts[i])
-      newAtts.push(tmp)
+    for (let i = 0; i < this.state.atts.length; i++) {
+      const tmp = Object.assign({}, this.state.atts[i]);
+      newAtts.push(tmp);
     }
     const { id, type, name, value } = changedAtt;
 
@@ -56,7 +55,6 @@ class Product extends Component {
         return;
       }
     }
-
   };
 
   render() {
@@ -84,7 +82,16 @@ class Product extends Component {
           <h2>{symbol + price}</h2>
           <button
             onClick={() => {
-              setCart("Add", { id, name, atts, count: 1, prices, brand, attributes, gallery });
+              setCart("Add", {
+                id,
+                name,
+                atts,
+                count: 1,
+                prices,
+                brand,
+                attributes,
+                gallery,
+              });
             }}
           >
             ADD TO CART

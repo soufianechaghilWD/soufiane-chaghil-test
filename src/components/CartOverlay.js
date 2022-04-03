@@ -39,7 +39,8 @@ class CartOverlay extends Component {
     const total = cart
       ?.map(
         (ele) =>
-          ele?.prices?.filter((pr) => pr.currency.label === label)[0]?.amount * ele?.count
+          ele?.prices?.filter((pr) => pr.currency.label === label)[0]?.amount *
+          ele?.count
       )
       ?.reduce((a, b) => a + b, 0);
 
@@ -51,8 +52,16 @@ class CartOverlay extends Component {
           </h2>
           <div className="cart_overlay_products">
             {cart?.map((product, idx) => {
-              const { id, count, name, brand, prices, atts, attributes, gallery } =
-                product;
+              const {
+                id,
+                count,
+                name,
+                brand,
+                prices,
+                atts,
+                attributes,
+                gallery,
+              } = product;
               const price = prices?.filter(
                 (pr) => pr?.currency?.label === label
               )[0].amount;
@@ -103,39 +112,28 @@ class CartOverlay extends Component {
                     <div
                       className="add"
                       onClick={() => {
-                        setCart("Add", {
-                          attributes,
-                          atts,
-                          brand,
-                          count: 1,
-                          id,
-                          name,
-                          gallery,
-                          prices,
-                        });
+                        const newIt = Object.assign({}, product);
+                        newIt.count = 1;
+                        setCart("Add", newIt);
                       }}
                     >
                       +
                     </div>
                     <div className="count">{count}</div>
-                    <div className="remove" onClick={() => {setCart('Remove', {
-                      attributes,
-                      atts,
-                      brand,
-                      count: 1,
-                      id,
-                      name,
-                      gallery,
-                      prices,
-                    })}}>
+                    <div
+                      className="remove"
+                      onClick={() => {
+                        const newIt = Object.assign({}, product);
+                        newIt.count = 1;
+
+                        setCart("Remove", newIt);
+                      }}
+                    >
                       -
                     </div>
                   </div>
                   <div className="overlay_product_pic">
-                    <img
-                      src={gallery[0]}
-                      alt="OverlayPic"
-                    />
+                    <img src={gallery[0]} alt="OverlayPic" />
                   </div>
                 </div>
               );

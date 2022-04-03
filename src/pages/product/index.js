@@ -10,7 +10,6 @@ class Index extends Component {
     product_id: "",
   };
 
-
   componentDidMount() {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
@@ -21,8 +20,6 @@ class Index extends Component {
   render() {
     const { product_id } = this.state;
 
-
-    
     return (
       <div className="product">
         <Header />
@@ -32,7 +29,6 @@ class Index extends Component {
               if (loading) return <h6>loading</h6>;
 
               const { product } = data;
-
 
               return <Product product={product} />;
             }}

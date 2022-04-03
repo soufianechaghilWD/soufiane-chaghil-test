@@ -47,7 +47,9 @@ class HeaderCurrencyCart extends Component {
             {cart?.length > 0 && <p>{cart?.length}</p>}
           </div>
         </div>
-        {openCartOverlay === true && <CartOverlay setOpenCartOverlay={setOpenCartOverlay} />}
+        {openCartOverlay === true && (
+          <CartOverlay setOpenCartOverlay={setOpenCartOverlay} />
+        )}
       </div>
     );
   }

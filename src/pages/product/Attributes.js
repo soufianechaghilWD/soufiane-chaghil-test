@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 
 class Attributes extends Component {
-
-    
   render() {
     const { atts, choosed, setAtts } = this.props;
     return (
@@ -41,7 +39,9 @@ class Attributes extends Component {
                           }}
                           key={idx + "sm"}
                           className="att unchoosen"
-                          onClick={() => {setAtts({name, type, id, value: item})}}
+                          onClick={() => {
+                            setAtts({ name, type, id, value: item });
+                          }}
                         >
                           {item?.value}
                         </div>
