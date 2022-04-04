@@ -6,9 +6,11 @@
   margin: 4rem;
 }
 .home__body > h1 {
-  margin-bottom: 4rem;
+  margin-bottom: 4rem 0 1.25rem;
 }
-.home__products {
+/* .home__products {
+} */
+.home__product__container {
   display: grid;
   grid-template-columns: auto auto auto;
 }

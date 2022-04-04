@@ -1,0 +1,13 @@
+.filters {
+  margin: 2.5rem 3.5rem;
+}
+.filters > h4 {
+  margin: 1rem 0;
+  width: fit-content;
+  border-bottom: 3px solid #5ece7b;
+}
+.filters__container {
+  margin-left: 3rem;
+  display: flex;
+  justify-content: space-between;
+}
