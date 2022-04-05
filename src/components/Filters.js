@@ -3,6 +3,8 @@ import "../styles/Filters.css";
 
 class Filters extends Component {
   render() {
+
+    
     const { products, setFilters, clearFilters, filters } = this.props;
     const shownFilters = [];
     for (let i = 0; i < products?.length; i++) {

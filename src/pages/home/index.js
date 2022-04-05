@@ -12,6 +12,18 @@ class Index extends Component {
     filters: [],
   };
 
+  componentDidMount(){
+
+    // get the filters from the url
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const filters = JSON.parse(urlParams.get("filters")) || [];
+    filters?.map(filter => {
+      if(filter?.type === "swatch") filter.selected = "#"+filter?.selected
+      return filter
+    })
+    this.setState({filters})
+  }
 
   setFilters = (filter) => {
     const newFilters = []
@@ -35,10 +47,33 @@ class Index extends Component {
         }
       }
     }
+
+    const swatchStr = (str) => {
+      var res = ""
+      for(let i = 1; i < str.length; i++) res+=str[i]
+      return res
+    }
+
+    // save the filters in the url
+    const baseUrl = window.location.origin
+    var urlPara = "?filters=["
+    for(let i = 0; i < newFilters?.length; i++){
+      const tmp = newFilters[i]
+      var filterString = '{"name":"'+tmp?.name+'","type":"'+tmp?.type+'","selected":"'
+      var selectedVal = tmp?.type === "swatch" ? swatchStr(tmp?.selected) : tmp?.selected
+      filterString+=selectedVal+'"}'
+      if(i !== newFilters?.length - 1) filterString+=","
+      urlPara+=filterString
+    }
+    urlPara+="]"
+    window.history.pushState({}, "", baseUrl+urlPara)
+
     this.setState({filters: newFilters})
   };
 
   clearFilters = () => {
+    const baseUrl = window.location.origin
+    window.history.pushState({}, '', baseUrl)
     this.setState({filters: []})
   }
 

@@ -12,7 +12,7 @@
 .filters__header > h4 {
   margin: 1rem 0;
   width: fit-content;
-  border-bottom: 3px solid #5ece7b;
+  border-bottom: 1px solid #5ece7b;
 }
 .filters__container {
   margin-left: 2rem;
