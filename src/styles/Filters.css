@@ -1,44 +1,61 @@
 .filters {
-  margin: 2.5rem 3.5rem;
+  margin: 2.5rem 0.5rem;
+  height: 65vh;
+  display: flex;
+  flex-direction: column;
+  max-height: 600px;
+  padding-right: 1rem;
+  border-right: 1px solid #5ece7b;
+  min-width: 230px;
 }
-.filters__header{
+.filters__header {
   display: flex;
   justify-content: space-between;
   margin-bottom: 2rem;
+  align-items: center;
 }
-.clear_filters{
+.clear_filters {
   cursor: pointer;
 }
 .filters__header > h4 {
   margin: 1rem 0;
   width: fit-content;
+}
+.filters__header > h6 {
   border-bottom: 1px solid #5ece7b;
+  font-size: 12px;
 }
 .filters__container {
-  margin-left: 2rem;
+  flex: 1;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: space-around;
 }
-.filter > h6{
+.filter > h6 {
   margin-right: 1rem;
   font-size: 14px;
 }
-.filter{
+.filter {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+.filter > div {
   display: flex;
   align-items: center;
 }
-.filter__items__swatch{
+.filter__items__swatch {
   display: flex;
 }
-.filter__items__swatch > div{
+.filter__items__swatch > div {
   width: 25px;
   height: 25px;
   border: 1px solid gray;
 }
-.filter__items__swatch > div:not(:last-child){
+.filter__items__swatch > div:not(:last-child) {
   margin-right: 0.4rem;
 }
-.filter__items__swatch__selected{
+.filter__items__swatch__selected {
   width: 30px !important;
   height: 30px !important;
   border: 2px solid black !important;

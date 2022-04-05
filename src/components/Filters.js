@@ -3,8 +3,6 @@ import "../styles/Filters.css";
 
 class Filters extends Component {
   render() {
-
-    
     const { products, setFilters, clearFilters, filters } = this.props;
     const shownFilters = [];
     for (let i = 0; i < products?.length; i++) {
@@ -22,10 +20,15 @@ class Filters extends Component {
     return (
       <div className="filters">
         <div className="filters__header">
-          <h4>Filters </h4>
-          <h4 className="clear_filters" onClick={() => {
-            clearFilters()
-          }}>Clear Filters</h4>
+          <h4>FILTERS: </h4>
+          <h6
+            className="clear_filters"
+            onClick={() => {
+              clearFilters();
+            }}
+          >
+            Clear Filters
+          </h6>
         </div>
         <div className="filters__container">
           {shownFilters?.map((filter, filertIdx) => {
@@ -38,9 +41,8 @@ class Filters extends Component {
             const YesNoSelected =
               filters?.filter((fl) => fl?.name === name)?.length > 0;
 
-            const selectValue = filters?.filter(
-              (fl) => fl?.name === name
-            )[0]?.selected
+            const selectValue = filters?.filter((fl) => fl?.name === name)[0]
+              ?.selected;
 
             return (
               <div className="filter" key={filertIdx + "filter"}>
@@ -83,7 +85,7 @@ class Filters extends Component {
                     <select
                       value={selectValue}
                       onChange={(e) => {
-                        const val = e.target.value
+                        const val = e.target.value;
                         setFilters({ name, type, selected: val });
                       }}
                     >
