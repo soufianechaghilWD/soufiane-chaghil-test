@@ -1,13 +1,45 @@
 .filters {
   margin: 2.5rem 3.5rem;
 }
-.filters > h4 {
+.filters__header{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+.clear_filters{
+  cursor: pointer;
+}
+.filters__header > h4 {
   margin: 1rem 0;
   width: fit-content;
   border-bottom: 3px solid #5ece7b;
 }
 .filters__container {
-  margin-left: 3rem;
+  margin-left: 2rem;
   display: flex;
   justify-content: space-between;
+}
+.filter > h6{
+  margin-right: 1rem;
+  font-size: 14px;
+}
+.filter{
+  display: flex;
+  align-items: center;
+}
+.filter__items__swatch{
+  display: flex;
+}
+.filter__items__swatch > div{
+  width: 25px;
+  height: 25px;
+  border: 1px solid gray;
+}
+.filter__items__swatch > div:not(:last-child){
+  margin-right: 0.4rem;
+}
+.filter__items__swatch__selected{
+  width: 30px !important;
+  height: 30px !important;
+  border: 2px solid black !important;
 }

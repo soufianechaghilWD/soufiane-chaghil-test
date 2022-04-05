@@ -12,9 +12,35 @@ class Index extends Component {
     filters: [],
   };
 
-  setFilters = (filters) => {
-    this.setState({ filters });
+
+  setFilters = (filter) => {
+    const newFilters = []
+    for(let i = 0; i < this.state?.filters?.length; i++){
+      const crt = this.state?.filters[i]
+      const newObj = Object.assign({}, crt)
+      newFilters.push(newObj)
+    }
+    const existedFil = newFilters?.filter(fl => fl?.name === filter?.name)
+    if(existedFil?.length === 0) newFilters.push(filter)
+    else{
+      if(existedFil[0]?.selected !== filter?.selected) existedFil[0].selected = filter?.selected
+      else{
+        var idx = -1;
+        for(let i =0; i < newFilters.length; i++){
+          const crt = newFilters[i]
+          if(crt?.name === filter?.name) idx = i
+        }
+        if(idx > -1){
+          newFilters.splice(idx, 1)
+        }
+      }
+    }
+    this.setState({filters: newFilters})
   };
+
+  clearFilters = () => {
+    this.setState({filters: []})
+  }
 
   static contextType = DataContext;
 
@@ -22,7 +48,8 @@ class Index extends Component {
     const { currency, activeHeaderOption } = this.context;
 
     const {filters} = this.state
-    const {setFilters} = this
+    const {setFilters, clearFilters} = this
+
 
     return (
       <div className="home">
@@ -34,11 +61,20 @@ class Index extends Component {
               {({ loading, data }) => {
                 if (loading === true) return <h6>Loading</h6>;
 
-                const { products } = data?.category;
+
+                var products = [];
+                if(filters?.length === 0) products = data?.category?.products
+                else{
+                  var tmpPrds = data?.category?.products
+                  for(let i = 0; i < tmpPrds?.length; i++){
+                    const prd = tmpPrds[i]
+                    if(filters?.every(fl => prd?.attributes?.some(x => x?.name === fl.name))) products.push(prd)
+                  }
+                }
 
                 return (
                   <>
-                    <Filters filters={filters} setFilters={setFilters} products={products} />
+                    <Filters filters={filters} setFilters={setFilters} clearFilters={clearFilters} products={products} />
                     <div className="home__product__container">
                       {products?.map((product, idx) => {
                         const { gallery, id, name, prices, attributes, brand } =
