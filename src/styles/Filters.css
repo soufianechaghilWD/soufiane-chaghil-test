@@ -1,12 +1,11 @@
 .filters {
-  margin: 2.5rem 0.5rem;
+  margin: 2.5rem 0rem;
   height: 65vh;
   display: flex;
   flex-direction: column;
   max-height: 600px;
   padding-right: 1rem;
   border-right: 1px solid #5ece7b;
-  min-width: 230px;
 }
 .filters__header {
   display: flex;
